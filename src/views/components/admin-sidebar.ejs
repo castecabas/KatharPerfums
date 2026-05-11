@@ -1,0 +1,57 @@
+<aside class="sidebar" id="sidebar">
+
+  <div class="nav-section-title">◈ General</div>
+
+  <a href="/admin"
+     class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'dashboard' ? 'active' : '' %>">
+    <span class="nav-icon">◈</span>
+    Dashboard
+  </a>
+
+  <div class="nav-section-title">✦ Tienda</div>
+
+  <a href="/admin/productos"
+     class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'productos' ? 'active' : '' %>">
+    <span class="nav-icon">🧴</span>
+    Productos
+    <% if (typeof totalProductos !== 'undefined') { %>
+      <span class="nav-count"><%= totalProductos %></span>
+    <% } %>
+  </a>
+
+  <a href="/admin/categorias"
+     class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'categorias' ? 'active' : '' %>">
+    <span class="nav-icon">🏷</span>
+    Categorías
+    <% if (typeof totalCategorias !== 'undefined') { %>
+      <span class="nav-count"><%= totalCategorias %></span>
+    <% } %>
+  </a>
+  <div class="nav-section-title">◈ Taxonomías</div>
+
+  <a href="/admin/marcas"
+     class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'marcas' ? 'active' : '' %>">
+    <span class="nav-icon">✦</span>
+    Marcas
+    <% if (typeof totalMarcas !== 'undefined' && totalMarcas > 0) { %>
+      <span class="nav-count"><%= totalMarcas %></span>
+    <% } %>
+  </a>
+
+  <a href="/admin/familias"
+     class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'familias' ? 'active' : '' %>">
+    <span class="nav-icon">🌸</span>
+    Familias Olfativas
+    <% if (typeof totalFamilias !== 'undefined' && totalFamilias > 0) { %>
+      <span class="nav-count"><%= totalFamilias %></span>
+    <% } %>
+  </a>
+
+  <div class="nav-section-title">↗ Accesos</div>
+
+  <a href="/" target="_blank" class="nav-item">
+    <span class="nav-icon">🌐</span>
+    Ver Tienda
+  </a>
+
+</aside>

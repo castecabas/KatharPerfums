@@ -1,0 +1,4 @@
+# Descuentos de la tienda
+
+ 1. Por la compra de 3 productos de diferentes marcas (minimo 3 de ellas). 
+    Obtiene el 15% de descuento en el precio total de los productos.

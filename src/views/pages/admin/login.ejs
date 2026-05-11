@@ -1,0 +1,161 @@
+<% layout = false %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KATHAR PERFUMS — Acceso Administrativo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#C9A84C; --gold-light:#E8C96A; --black:#080808;
+  --magenta:#9B1B5A; --rose:#c2436a; --cream:#F5EDD6;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--cream);font-family:'Montserrat',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(201,168,76,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+.bg-orbs{position:fixed;inset:0;pointer-events:none;z-index:0;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbFloat 8s ease-in-out infinite;}
+.orb1{width:400px;height:400px;background:radial-gradient(circle,rgba(155,27,90,0.15),transparent);top:-100px;left:-100px;}
+.orb2{width:300px;height:300px;background:radial-gradient(circle,rgba(201,168,76,0.1),transparent);bottom:-50px;right:-50px;animation-delay:-4s;}
+.orb3{width:200px;height:200px;background:radial-gradient(circle,rgba(125,26,58,0.12),transparent);top:50%;right:20%;animation-delay:-2s;}
+@keyframes orbFloat{0%,100%{transform:translate(0,0);}33%{transform:translate(20px,-30px);}66%{transform:translate(-15px,15px);}}
+.login-wrap{position:relative;z-index:10;width:100%;max-width:420px;padding:20px;animation:fadeInUp 0.6s ease forwards;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.login-card{background:linear-gradient(160deg,#0f0f0f,#0a0005);border:1px solid rgba(201,168,76,0.25);padding:48px 40px;position:relative;overflow:hidden;}
+.login-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--magenta),transparent);}
+.login-logo{text-align:center;margin-bottom:36px;}
+.logo-main{font-family:'Cinzel',serif;font-size:26px;letter-spacing:8px;color:var(--gold);display:block;margin-bottom:4px;}
+.logo-sub{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(245,237,214,0.4);letter-spacing:2px;}
+.logo-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:16px auto;}
+.login-eyebrow{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:rgba(201,168,76,0.5);text-align:center;text-transform:uppercase;margin-bottom:32px;}
+.form-group{margin-bottom:20px;}
+.form-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.7);text-transform:uppercase;display:block;margin-bottom:8px;}
+.form-input-wrap{position:relative;}
+.form-input{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);color:var(--cream);padding:13px 42px 13px 16px;font-family:'Montserrat',sans-serif;font-size:13px;outline:none;transition:all 0.3s;letter-spacing:0.5px;}
+.form-input::placeholder{color:rgba(245,237,214,0.2);}
+.form-input:focus{border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.04);}
+.input-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:16px;opacity:0.3;pointer-events:none;}
+.toggle-pw{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(245,237,214,0.3);cursor:pointer;font-size:16px;padding:4px;transition:color 0.2s;}
+.toggle-pw:hover{color:rgba(245,237,214,0.7);}
+.error-msg{background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);color:rgba(231,76,60,0.9);padding:10px 14px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;display:none;align-items:center;gap:8px;}
+.error-msg.show{display:flex;}
+.login-btn{width:100%;background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(155,27,90,0.2));border:1px solid rgba(201,168,76,0.5);color:var(--gold-light);padding:15px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;margin-top:8px;position:relative;overflow:hidden;}
+.login-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.3),rgba(155,27,90,0.3));opacity:0;transition:opacity 0.3s;}
+.login-btn:hover::before{opacity:1;}
+.login-btn:hover{border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,0.15);}
+.login-btn span{position:relative;z-index:1;}
+.back-link{text-align:center;margin-top:28px;}
+.back-link a{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(245,237,214,0.3);text-decoration:none;text-transform:uppercase;transition:color 0.2s;display:inline-flex;align-items:center;gap:6px;}
+.back-link a:hover{color:rgba(201,168,76,0.6);}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+</style>
+</head>
+<body>
+<div class="bg-orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<div class="login-wrap">
+  <div class="login-card" id="login-card">
+
+    <div class="login-logo">
+      <span class="logo-main">KATHAR</span>
+      <span class="logo-sub">Perfums</span>
+      <div class="logo-divider"></div>
+    </div>
+
+    <div class="login-eyebrow">⚿ Acceso Administrativo</div>
+
+    <div class="error-msg" id="error-msg">
+      <span>✕</span>
+      <span id="error-text">Usuario o contraseña incorrectos</span>
+    </div>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label class="form-label">Usuario</label>
+        <div class="form-input-wrap">
+          <input class="form-input" id="username" name="usuario"
+                 type="text" placeholder="Ingresa tu usuario"
+                 autocomplete="username">
+          <span class="input-icon">◈</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Contraseña</label>
+        <div class="form-input-wrap">
+          <input class="form-input" id="password" name="password"
+                 type="password" placeholder="••••••••"
+                 autocomplete="current-password">
+          <button class="toggle-pw" type="button"
+                  onclick="togglePassword()" id="pw-eye">👁</button>
+        </div>
+      </div>
+
+      <button class="login-btn" type="button" id="login-btn" onclick="doLogin()">
+        <span id="btn-text">✦ Ingresar al Panel</span>
+      </button>
+    </form>
+
+    <div class="back-link">
+      <a href="/">← Volver a la Tienda</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const CREDENTIALS = { usuario: 'kathar', password: 'kathar2025' };
+
+  function doLogin() {
+    const user = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value;
+    const errEl = document.getElementById('error-msg');
+    const btn = document.getElementById('login-btn');
+    const btnText = document.getElementById('btn-text');
+    errEl.classList.remove('show');
+    if (!user || !pass) { showError('Por favor completa todos los campos'); return; }
+    btn.disabled = true;
+    btnText.textContent = '⟳ Verificando...';
+    setTimeout(() => {
+      if (user === CREDENTIALS.usuario && pass === CREDENTIALS.password) {
+        document.getElementById('login-card').style.borderColor = 'rgba(46,204,113,0.4)';
+        btnText.textContent = '✓ Acceso Concedido';
+        btn.style.borderColor = 'rgba(46,204,113,0.5)';
+        btn.style.color = '#2ecc71';
+        sessionStorage.setItem('kathar_admin_auth', 'true');
+        setTimeout(() => { window.location.href = '/admin'; }, 800);
+      } else {
+        btn.disabled = false;
+        btnText.textContent = '✦ Ingresar al Panel';
+        showError('Usuario o contraseña incorrectos');
+        document.getElementById('login-card').style.animation = 'shake 0.4s ease';
+        setTimeout(() => document.getElementById('login-card').style.animation = '', 400);
+      }
+    }, 700);
+  }
+
+  function showError(msg) {
+    document.getElementById('error-text').textContent = msg;
+    document.getElementById('error-msg').classList.add('show');
+  }
+
+  function togglePassword() {
+    const input = document.getElementById('password');
+    const eye = document.getElementById('pw-eye');
+    if (input.type === 'password') { input.type = 'text'; eye.textContent = '🙈'; }
+    else { input.type = 'password'; eye.textContent = '👁'; }
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  document.getElementById('username').focus();
+</script>
+</body>
+</html>

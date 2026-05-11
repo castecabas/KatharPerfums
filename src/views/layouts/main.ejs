@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof titulo !== 'undefined' ? titulo : 'KatharPerfums' %></title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Estilos del chatbot (solo páginas públicas) -->
+  <% if (typeof seccionAdmin === 'undefined') { %>
+    <link rel="stylesheet" href="/css/chatbot.css">
+  <% } %>
+
+  <!-- Estilos específicos de la página (opcional) -->
+  <% if (typeof cssExtra !== 'undefined') { %>
+  <link rel="stylesheet" href="/css/<%= cssExtra %>">
+<% } %>
+</head>
+<body>
+
+  <!-- ─── Navbar ─────────────────────────────────── -->
+  <%- include('../components/navbar') %>
+
+  <!-- ─── Contenido principal ────────────────────── -->
+  <main id="main-content">
+    <%- body %>
+  </main>
+
+  <!-- ─── Footer ─────────────────────────────────── -->
+  <%- include('../components/footer') %>
+
+  <!-- ─── Chatbot (solo páginas públicas) ─────── -->
+  <% if (typeof seccionAdmin === 'undefined') { %>
+    <%- include('../components/chatbot') %>
+  <% } %>
+
+  <!-- ─── Toast global ────────────────────────────── -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ─── JS global ───────────────────────────────── -->
+  <script src="/js/main.js"></script>
+
+  <!-- ─── JS chatbot (solo páginas públicas) ──── -->
+  <% if (typeof seccionAdmin === 'undefined') { %>
+    <script src="/js/chatbot.js"></script>
+  <% } %>
+  
+  <!-- ─── JS específico de la página (opcional) ───── -->
+  <% if (typeof jsExtra !== 'undefined') { %>
+  <script src="/js/<%= jsExtra %>"></script>
+<% } %>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!-- ═══════════════════════════════════════
+     KATHARBOT — Widget Flotante
+════════════════════════════════════════ -->
+
+<!-- Botón flotante -->
+<button class="kb-trigger" id="kb-trigger" onclick="kbToggle()" aria-label="Abrir asistente">
+  <span class="kb-trigger-icon" id="kb-trigger-icon">✦</span>
+  <span class="kb-trigger-label">KatharBot</span>
+  <span class="kb-trigger-dot" id="kb-trigger-dot"></span>
+</button>
+
+<!-- Ventana del chat -->
+<div class="kb-window" id="kb-window" aria-hidden="true">
+
+  <!-- Header -->
+  <div class="kb-header">
+    <div class="kb-header-left">
+      <div class="kb-avatar">✦</div>
+      <div class="kb-header-info">
+        <div class="kb-name">KatharBot</div>
+        <div class="kb-status">
+          <span class="kb-status-dot"></span>
+          Asistente de fragancias
+        </div>
+      </div>
+    </div>
+    <button class="kb-close" onclick="kbToggle()" aria-label="Cerrar">✕</button>
+  </div>
+
+  <!-- Mensajes -->
+  <div class="kb-messages" id="kb-messages">
+
+    <!-- Mensaje de bienvenida -->
+    <div class="kb-msg kb-msg-bot">
+      <div class="kb-msg-avatar">✦</div>
+      <div class="kb-msg-bubble">
+        Bienvenido a <strong>KatharPerfums</strong> 🌸<br><br>
+        Soy KatharBot, tu asistente personal de fragancias. Puedo ayudarte a
+        encontrar el perfume ideal, resolver tus dudas o conectarte con nuestro equipo.
+        <br><br>¿En qué puedo ayudarte hoy?
+      </div>
+    </div>
+
+    <!-- Sugerencias rápidas -->
+    <div class="kb-suggestions" id="kb-suggestions">
+      <button class="kb-chip" onclick="kbSuggestion(this)">¿Qué perfumes tienen?</button>
+      <button class="kb-chip" onclick="kbSuggestion(this)">Recomiéndame uno para mujer</button>
+      <button class="kb-chip" onclick="kbSuggestion(this)">¿Cómo puedo comprar?</button>
+      <button class="kb-chip" onclick="kbSuggestion(this)">¿Hacen envíos?</button>
+    </div>
+
+  </div>
+
+  <!-- Typing indicator (oculto por defecto) -->
+  <div class="kb-typing" id="kb-typing" style="display:none">
+    <div class="kb-msg-avatar small">✦</div>
+    <div class="kb-typing-dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div class="kb-footer">
+    <div class="kb-input-wrap">
+      <textarea
+        class="kb-input"
+        id="kb-input"
+        placeholder="Escribe tu pregunta..."
+        rows="1"
+        maxlength="500"
+        onkeydown="kbKeyDown(event)"
+        oninput="kbAutoResize(this)"
+      ></textarea>
+      <button class="kb-send" id="kb-send" onclick="kbSend()" aria-label="Enviar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+    <div class="kb-footer-note">
+      Powered by <span style="color:var(--gold)">KatharPerfums ✦ Ollama</span>
+    </div>
+  </div>
+
+</div>

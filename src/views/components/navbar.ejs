@@ -1,0 +1,29 @@
+<nav class="topbar">
+
+  <!-- Logo -->
+  <a href="/" class="topbar-logo">
+    KATHAR <span>Perfums</span>
+  </a>
+
+  <!-- Navegación -->
+  <div class="topbar-nav">
+    <a href="/" class="topbar-btn <%= typeof paginaActiva !== 'undefined' && paginaActiva === 'inicio' ? 'active' : '' %>">
+      Inicio
+    </a>
+    <a href="/catalogo" class="topbar-btn <%= typeof paginaActiva !== 'undefined' && paginaActiva === 'catalogo' ? 'active' : '' %>">
+      Catálogo
+    </a>
+    <% if (typeof categorias !== 'undefined') { %>
+      <% categorias.forEach(cat => { %>
+        <a href="/catalogo?categoria=<%= cat.slug %>" class="topbar-btn <%= typeof categoriaActiva !== 'undefined' && categoriaActiva && categoriaActiva.id === cat.id ? 'active' : '' %>">
+          <%= cat.nombre %>
+        </a>
+      <% }) %>
+    <% } %>
+    <a href="/admin/login" class="topbar-btn left">Admin</a>
+  </div>
+
+  <!-- Botón admin secreto -->
+  <!--<a href="/admin" id="admin-secret-btn" title="Acceso Administrativo">⚿</a>
+-->
+</nav>

@@ -1,0 +1,43 @@
+<footer class="footer">
+  <div class="footer-inner">
+
+    <!-- Columna 1: Marca -->
+    <div>
+      <div class="footer-brand-name">KATHAR</div>
+      <div class="footer-brand-sub">Perfums</div>
+      <div class="footer-divider"></div>
+      <p class="footer-desc">
+        Fragancias exclusivas para quienes buscan<br>
+        dejar una huella inolvidable.
+      </p>
+    </div>
+
+    <!-- Columna 2: Navegación -->
+    <div>
+      <div class="footer-col-title">✦ Colecciones</div>
+      <div class="footer-links">
+        <a href="/catalogo">Todos los perfumes</a>
+        <% if (typeof categorias !== 'undefined') { %>
+          <% categorias.forEach(cat => { %>
+            <a href="/catalogo?categoria=<%= cat.slug %>"><%= cat.nombre %></a>
+          <% }) %>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Columna 3: Contacto -->
+    <div>
+      <div class="footer-col-title">◈ Contacto</div>
+      <div class="footer-links">
+        <a href="https://wa.me/573054291055" target="_blank">📱 WhatsApp</a>
+        <a href="/catalogo">Ver catálogo completo</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-copy">© <%= new Date().getFullYear() %> KatharPerfums · Todos los derechos reservados</span>
+    <span class="footer-copy">Hecho con ✦ en Colombia</span>
+  </div>
+</footer>

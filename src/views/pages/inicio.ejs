@@ -1,0 +1,171 @@
+<%
+  layout       = 'layouts/main';
+  paginaActiva = 'inicio';
+%>
+
+<style>
+/* ─── HERO ─────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #0d0008, #1a0520, #0a0010);
+}
+.hero-orbs { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); animation: orbFloat 8s ease-in-out infinite; }
+.orb1 { width:500px;height:500px;background:radial-gradient(circle,rgba(155,27,90,0.18),transparent);top:-100px;left:-100px; }
+.orb2 { width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,0.1),transparent);bottom:-50px;right:-50px;animation-delay:-4s; }
+.orb3 { width:300px;height:300px;background:radial-gradient(circle,rgba(125,26,58,0.12),transparent);top:50%;right:20%;animation-delay:-2s; }
+.hero-content { position:relative;z-index:2;text-align:center;padding:40px 20px;animation:fadeInUp 0.8s ease forwards; }
+.hero-eyebrow { font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:20px; }
+.hero-title { font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,100px);font-weight:300;color:var(--cream);line-height:1;letter-spacing:4px;margin-bottom:8px; }
+.hero-title em { font-style:italic;color:var(--gold); }
+.hero-subtitle { font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.5vw,22px);font-style:italic;color:rgba(245,237,214,0.5);letter-spacing:3px;margin-bottom:40px; }
+.hero-divider { width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 40px; }
+.hero-cta { display:inline-flex;gap:16px;flex-wrap:wrap;justify-content:center; }
+.btn-primary { background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(155,27,90,0.2));border:1px solid rgba(201,168,76,0.5);color:var(--gold-light);padding:14px 36px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px; }
+.btn-primary:hover { border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,0.15); }
+.btn-secondary { background:transparent;border:1px solid rgba(245,237,214,0.15);color:rgba(245,237,214,0.5);padding:14px 36px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none; }
+.btn-secondary:hover { border-color:rgba(245,237,214,0.4);color:var(--cream); }
+.hero-scroll { position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.4; }
+.scroll-line { width:1px;height:40px;background:linear-gradient(180deg,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite; }
+.scroll-label { font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase; }
+@keyframes scrollPulse { 0%,100%{opacity:0.3}50%{opacity:1} }
+
+/* ─── SECCIONES ─────────────────────────────────────── */
+.section { position:relative;z-index:1;padding:80px 24px; }
+.section-eyebrow { font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;color:rgba(201,168,76,0.6);text-transform:uppercase;text-align:center;margin-bottom:12px; }
+.section-title { font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:300;color:var(--cream);letter-spacing:3px;text-align:center; }
+.section-title em { font-style:italic;color:var(--gold); }
+.section-line { width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 52px; }
+
+/* ─── CATEGORÍAS ─────────────────────────────────────── */
+.cat-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:1200px;margin:0 auto; }
+.cat-card { background:linear-gradient(160deg,rgba(201,168,76,0.06),rgba(155,27,90,0.04));border:1px solid rgba(201,168,76,0.2);padding:36px 24px;text-align:center;cursor:pointer;transition:all 0.3s;text-decoration:none;display:block;position:relative;overflow:hidden; }
+.cat-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity 0.3s; }
+.cat-card:hover { border-color:rgba(201,168,76,0.5);transform:translateY(-4px); }
+.cat-card:hover::before { opacity:1; }
+.cat-icon { font-size:36px;margin-bottom:16px;display:block; }
+.cat-name { font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px; }
+.cat-desc { font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(245,237,214,0.4);letter-spacing:1px; }
+.empty-cats { text-align:center;padding:60px 20px;grid-column:1/-1; }
+.empty-cats-icon { font-size:48px;opacity:0.2;margin-bottom:16px; }
+.empty-cats-text { font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:rgba(245,237,214,0.3); }
+
+/* ─── DESTACADOS ─────────────────────────────────────── */
+.destacados-section { background:linear-gradient(180deg,var(--black),#0d0008,var(--black));padding:80px 24px;position:relative;z-index:1; }
+.product-grid-home { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;max-width:1200px;margin:0 auto; }
+
+/* ─── BANNER CTA ─────────────────────────────────────── */
+.banner-cta { position:relative;z-index:1;padding:80px 24px;text-align:center;background:linear-gradient(160deg,#0d0008,#1a0520);border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15); }
+.banner-cta-title { font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--cream);letter-spacing:3px;margin-bottom:12px; }
+.banner-cta-title em { font-style:italic;color:var(--gold); }
+.banner-cta-sub { font-family:'Montserrat',sans-serif;font-size:12px;color:rgba(245,237,214,0.35);letter-spacing:2px;margin-bottom:36px; }
+
+/* ─── PRODUCT CARD ─────────────────────────────────────── */
+.product-card { background:linear-gradient(160deg,rgba(201,168,76,0.05),rgba(0,0,0,0));border:1px solid rgba(201,168,76,0.15);cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden; }
+.product-card:hover { border-color:rgba(201,168,76,0.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+.card-image-wrap { position:relative;height:220px;overflow:hidden;background:linear-gradient(160deg,#0d0008,#1a0520); }
+.card-image-inner { width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform 0.5s; }
+.product-card:hover .card-image-inner { transform:rotateY(180deg); }
+.card-face { position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;backface-visibility:hidden; }
+.card-shimmer { position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(201,168,76,0.05) 50%,transparent 60%); }
+.card-product-img { width:100%;height:100%;object-fit:cover; }
+.bottle-display { font-size:80px;filter:drop-shadow(0 10px 30px rgba(201,168,76,0.3)); }
+.card-face.card-back { background:linear-gradient(160deg,#0d0008,#1a0520);transform:rotateY(180deg);padding:20px;gap:10px; }
+.back-title { font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--cream);text-align:center; }
+.back-desc { font-size:11px;color:rgba(245,237,214,0.5);text-align:center;line-height:1.6; }
+.back-notes { display:flex;gap:6px;flex-wrap:wrap;justify-content:center; }
+.note-chip { background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;padding:3px 8px; }
+.back-btn { background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:8px 20px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;cursor:pointer;transition:all 0.2s; }
+.back-btn:hover { background:rgba(201,168,76,0.1);border-color:var(--gold); }
+.card-badge { position:absolute;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;padding:3px 8px;text-transform:uppercase; }
+.card-badge.oferta { top:10px;left:10px;background:linear-gradient(135deg,var(--magenta),var(--burgundy));border:1px solid rgba(201,168,76,0.4);color:var(--gold-light); }
+.card-badge.agotado { top:10px;right:10px;background:rgba(231,76,60,0.2);border:1px solid rgba(231,76,60,0.4);color:rgba(231,76,60,0.9); }
+.card-particles { position:absolute;inset:0;pointer-events:none;overflow:hidden; }
+.particle { position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0; }
+.product-card:hover .particle { animation:particlePop 0.8s ease-out forwards; }
+.particle:nth-child(1){top:20%;left:20%}.particle:nth-child(2){top:60%;left:80%;animation-delay:0.1s}.particle:nth-child(3){top:80%;left:30%;animation-delay:0.2s}.particle:nth-child(4){top:30%;left:70%;animation-delay:0.15s}
+@keyframes particlePop { 0%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0) translate(20px,-20px)} }
+.card-info { padding:16px 16px 8px;border-top:1px solid rgba(201,168,76,0.1); }
+.card-brand { font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:4px; }
+.card-name { font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);letter-spacing:1px; }
+.card-size { font-size:10px;color:rgba(245,237,214,0.35);letter-spacing:1px;margin-top:4px; }
+.card-footer { padding:10px 16px 16px;display:flex;align-items:center;justify-content:space-between; }
+.card-price { font-family:'Cinzel',serif;font-size:13px;color:var(--gold);letter-spacing:1px; }
+.card-wish { background:none;border:1px solid rgba(201,168,76,0.2);color:rgba(201,168,76,0.5);width:30px;height:30px;font-size:14px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center; }
+.card-wish:hover,.card-wish.active { border-color:var(--rose);color:var(--rose); }
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">✦ Bienvenido a</div>
+    <h1 class="hero-title">KATHAR<br><em>Perfums</em></h1>
+    <p class="hero-subtitle">Fragancias que dejan huella</p>
+    <div class="hero-divider"></div>
+    <div class="hero-cta">
+      <a href="/catalogo" class="btn-primary">✦ Explorar catálogo</a>
+      <a href="#categorias" class="btn-secondary">Ver colecciones</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+<!-- CATEGORÍAS -->
+<section class="section" id="categorias">
+  <div class="section-eyebrow">✦ Explora por colección</div>
+  <h2 class="section-title">Nuestras <em>Colecciones</em></h2>
+  <div class="section-line"></div>
+  <div class="cat-grid">
+    <% if (categorias && categorias.length > 0) { %>
+      <% categorias.forEach(cat => { %>
+        <a href="/catalogo?categoria=<%= cat.slug %>" class="cat-card">
+          <span class="cat-icon">🧴</span>
+          <div class="cat-name"><%= cat.nombre %></div>
+          <% if (cat.descripcion) { %><div class="cat-desc"><%= cat.descripcion %></div><% } %>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <div class="empty-cats">
+        <div class="empty-cats-icon">🧴</div>
+        <div class="empty-cats-text">Las colecciones se mostrarán aquí pronto</div>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<!-- DESTACADOS -->
+<% if (destacados && destacados.length > 0) { %>
+<section class="destacados-section">
+  <div class="section-eyebrow">✦ Selección especial</div>
+  <h2 class="section-title">Fragancias <em>Destacadas</em></h2>
+  <div class="section-line"></div>
+  <div class="product-grid-home">
+    <% destacados.forEach(producto => { %>
+      <%- include('../components/product-card', { producto }) %>
+    <% }) %>
+  </div>
+  <div style="text-align:center;margin-top:48px;">
+    <a href="/catalogo" class="btn-primary">✦ Ver catálogo completo</a>
+  </div>
+</section>
+<% } %>
+
+<!-- BANNER CTA -->
+<section class="banner-cta">
+  <h2 class="banner-cta-title">¿Buscas tu fragancia <em>ideal</em>?</h2>
+  <p class="banner-cta-sub">Escríbenos por WhatsApp y te asesoramos personalmente</p>
+  <a href="https://wa.me/573054291055" target="_blank" class="btn-primary">📱 Consultar por WhatsApp</a>
+</section>

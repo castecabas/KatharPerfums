@@ -1,0 +1,201 @@
+<% layout = 'layouts/main' %>
+<% paginaActiva = 'catalogo' %>
+
+<style>
+/* ─── Layout ─── */
+.page{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 53px);}
+
+/* ─── Panel izquierdo ─── */
+.left-panel{position:sticky;top:53px;height:calc(100vh - 53px);background:linear-gradient(160deg,#0d0008,#1a0520,#0a0010);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;overflow:hidden;}
+.glow-ring{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,0.07);animation:ringPulse 4s ease-in-out infinite;}
+.ring1{width:300px;height:300px;animation-delay:0s;}
+.ring2{width:450px;height:450px;animation-delay:0.8s;}
+.ring3{width:600px;height:600px;animation-delay:1.6s;border-color:rgba(155,27,90,0.07);}
+.bottle-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+.bottle-stage{width:500px;height:500px;display:flex;align-items:center;justify-content:center;animation:floatBottle 5s ease-in-out infinite;}
+.bottle-emoji{font-size:140px;filter:drop-shadow(0 20px 60px rgba(201,168,76,0.35)) drop-shadow(0 0 100px rgba(155,27,90,0.3));line-height:1;}
+.bottle-img{width:480px;height:480px;object-fit:contain;filter:drop-shadow(0 20px 60px rgba(201,168,76,0.35));animation:floatBottle 5s ease-in-out infinite;}
+.bottle-shadow{width:140px;height:20px;background:radial-gradient(ellipse,rgba(201,168,76,0.25) 0%,transparent 70%);border-radius:50%;margin-top:-10px;animation:shadowPulse 5s ease-in-out infinite;}
+.bottle-brand-tag{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-top:20px;}
+.bottle-name-tag{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:rgba(245,237,214,0.9);letter-spacing:2px;margin-top:4px;}
+
+/* ─── Panel derecho ─── */
+.right-panel{padding:48px 52px 60px 48px;overflow-y:auto;}
+.product-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:8px;}
+.product-brand{font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;color:var(--gold);margin-bottom:8px;}
+.product-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--cream);letter-spacing:2px;line-height:1.2;margin-bottom:4px;}
+.product-subtitle{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(245,237,214,0.35);letter-spacing:2px;margin-bottom:24px;}
+.gold-line{width:100%;height:1px;background:linear-gradient(90deg,var(--gold),rgba(155,27,90,0.5),transparent);margin:24px 0;}
+
+/* ─── Precio ─── */
+.price-section{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
+.price-main{font-family:'Cinzel',serif;font-size:28px;color:var(--gold-light);letter-spacing:2px;}
+.price-currency{font-family:'Cinzel',serif;font-size:11px;color:rgba(201,168,76,0.5);letter-spacing:2px;}
+.price-badge{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;padding:4px 10px;text-transform:uppercase;border:1px solid;}
+.price-badge.disponible{background:rgba(46,204,113,0.1);border-color:rgba(46,204,113,0.3);color:rgba(46,204,113,0.8);}
+.price-badge.agotado{background:rgba(231,76,60,0.1);border-color:rgba(231,76,60,0.3);color:rgba(231,76,60,0.8);}
+
+/* ─── Section label ─── */
+.section-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:12px;}
+
+/* ─── Descripción ─── */
+.desc-section{margin-bottom:24px;}
+.desc-text{font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(245,237,214,0.6);line-height:1.9;letter-spacing:0.3px;font-style:italic;}
+
+/* ─── Info grid ─── */
+.info-grid{background:rgba(201,168,76,0.03);border:1px solid rgba(201,168,76,0.1);padding:20px;margin-bottom:28px;}
+.info-grid-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.1);}
+.info-grid-items{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.info-item{display:flex;flex-direction:column;gap:4px;}
+.info-key{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;}
+.info-val{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(245,237,214,0.8);}
+
+/* ─── Familia olfativa badge ─── */
+.familia-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(155,27,90,0.12),rgba(201,168,76,0.08));border:1px solid rgba(201,168,76,0.2);padding:8px 16px;margin-bottom:24px;}
+.familia-icon{font-size:16px;}
+.familia-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;}
+.familia-nombre{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--cream);margin-left:4px;}
+
+/* ─── CTA — solo WhatsApp ─── */
+.cta-section{margin-top:32px;}
+.btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.35);color:rgba(37,211,102,0.9);padding:16px 24px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;cursor:pointer;transition:all 0.3s;text-decoration:none;text-transform:uppercase;}
+.btn-wa:hover{background:rgba(37,211,102,0.14);border-color:rgba(37,211,102,0.6);box-shadow:0 0 24px rgba(37,211,102,0.1);}
+.btn-wa svg{flex-shrink:0;}
+
+/* ─── Back link ─── */
+.back-link{display:inline-flex;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(245,237,214,0.35);text-decoration:none;text-transform:uppercase;transition:color 0.2s;margin-bottom:24px;}
+.back-link:hover{color:var(--gold);}
+
+/* ─── Responsive ─── */
+@media(max-width:900px){
+  .page{grid-template-columns:1fr;}
+  .left-panel{position:relative;top:0;height:400px;}
+  .right-panel{padding:32px 24px;}
+}
+</style>
+
+<div class="page">
+
+  <!-- ══════════ PANEL IZQUIERDO ══════════ -->
+  <div class="left-panel">
+    <div class="glow-ring ring1"></div>
+    <div class="glow-ring ring2"></div>
+    <div class="glow-ring ring3"></div>
+
+    <div class="bottle-wrap">
+      <div class="bottle-stage">
+        <% if (producto.imagen && producto.imagen !== 'default.jpg') { %>
+          <img src="/uploads/<%= producto.imagen %>"
+               class="bottle-img" alt="<%= producto.nombre %>">
+        <% } else { %>
+          <div class="bottle-emoji"><img src="/uploads/default.jpg" alt="no encontrado"></div>
+        <% } %>
+      </div>
+      <div class="bottle-shadow"></div>
+      <div class="bottle-brand-tag">
+        <%= producto.marca ? producto.marca.nombre : '' %>
+      </div>
+      <div class="bottle-name-tag"><%= producto.nombre %></div>
+    </div>
+  </div>
+
+  <!-- ══════════ PANEL DERECHO ══════════ -->
+  <div class="right-panel">
+
+    <a href="/catalogo" class="back-link">← Volver al Catálogo</a>
+
+    <p class="product-eyebrow">✦ KatharPerfums</p>
+
+    <% if (producto.marca) { %>
+      <p class="product-brand"><%= producto.marca.nombre %></p>
+    <% } %>
+
+    <h1 class="product-title"><%= producto.nombre %></h1>
+
+    <% if (producto.categoria) { %>
+      <p class="product-subtitle"><%= producto.categoria.nombre %></p>
+    <% } %>
+
+    <!-- Familia olfativa badge -->
+    <% if (producto.familiaOlfativa) { %>
+      <div class="familia-badge">
+        <span class="familia-icon">🌸</span>
+        <span class="familia-label">Familia Olfativa</span>
+        <span class="familia-nombre"><%= producto.familiaOlfativa.nombre %></span>
+      </div>
+    <% } %>
+
+    <div class="gold-line"></div>
+
+    <!-- Precio -->
+    <div class="price-section">
+      <span class="price-main">
+        $<%= parseFloat(producto.precio).toLocaleString('es-CO') %>
+      </span>
+      <span class="price-currency">COP</span>
+      <% if (producto.stock > 0) { %>
+        <span class="price-badge disponible">✦ Disponible</span>
+      <% } else { %>
+        <span class="price-badge agotado">✕ Agotado</span>
+      <% } %>
+    </div>
+
+    <!-- Descripción -->
+    <% if (producto.descripcion) { %>
+    <div class="desc-section">
+      <p class="section-label">La fragancia</p>
+      <p class="desc-text"><%= producto.descripcion %></p>
+    </div>
+    <% } %>
+
+    <!-- Info grid -->
+    <div class="info-grid">
+      <div class="info-grid-title">◈ Información del Producto</div>
+      <div class="info-grid-items">
+
+        <% if (producto.marca) { %>
+        <div class="info-item">
+          <span class="info-key">Marca</span>
+          <span class="info-val"><%= producto.marca.nombre %></span>
+        </div>
+        <% } %>
+
+        <% if (producto.categoria) { %>
+        <div class="info-item">
+          <span class="info-key">Categoría</span>
+          <span class="info-val"><%= producto.categoria.nombre %></span>
+        </div>
+        <% } %>
+
+        <% if (producto.familiaOlfativa) { %>
+        <div class="info-item">
+          <span class="info-key">Familia Olfativa</span>
+          <span class="info-val"><%= producto.familiaOlfativa.nombre %></span>
+        </div>
+        <% } %>
+
+        <div class="info-item">
+          <span class="info-key">Disponibilidad</span>
+          <span class="info-val">
+            <%= producto.stock > 0 ? `${producto.stock} unidades` : 'Agotado' %>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA — solo WhatsApp -->
+    <div class="cta-section">
+      <a href="https://wa.me/573054291055?text=Hola!%20Me%20interesa%20el%20perfume%20*<%= encodeURIComponent(producto.nombre) %>*%20de%20<%= encodeURIComponent(producto.marca ? producto.marca.nombre : 'KatharPerfums') %>.%20%C2%BFEst%C3%A1%20disponible?"
+         class="btn-wa"
+         target="_blank"
+         rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Preguntar por WhatsApp
+      </a>
+    </div>
+
+  </div>
+</div>

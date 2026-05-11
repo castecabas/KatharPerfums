@@ -1,0 +1,505 @@
+/* =====================================================
+   KATHARPERFUMS — Estilos Globales
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* ─── Variables ────────────────────────────────────── */
+:root {
+  --gold:       #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dark:  #8B6914;
+  --black:      #080808;
+  --dark:       #111;
+  --burgundy:   #7D1A3A;
+  --magenta:    #9B1B5A;
+  --rose:       #c2436a;
+  --cream:      #F5EDD6;
+  --glass:      rgba(255,255,255,0.03);
+  --green:      #2ecc71;
+  --red:        #e74c3c;
+  --orange:     #f39c12;
+}
+
+/* ─── Reset ────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; }
+img { max-width: 100%; display: block; }
+
+/* ─── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb {
+  background: rgba(201,168,76,0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ─── Grid pattern global ──────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Topbar ───────────────────────────────────────── */
+.topbar {
+  background: #000;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.topbar-logo span {
+  color: rgba(201,168,76,0.45);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.topbar-btn {
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(245,237,214,0.6);
+  padding: 6px 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topbar-btn:hover,
+.topbar-btn.active {
+  background: var(--magenta);
+  border-color: var(--rose);
+  color: var(--gold-light);
+}
+
+.topbar-spacer { flex: 1; }
+
+.topbar-btn.left {
+  margin-left: auto;
+}
+/* ─── Footer ───────────────────────────────────────── */
+.footer {
+  background: #000;
+  border-top: 1px solid rgba(201,168,76,0.2);
+  padding: 40px 24px 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+
+.footer-brand-name {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.footer-brand-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: rgba(245,237,214,0.35);
+  letter-spacing: 2px;
+}
+
+.footer-divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 16px 0;
+}
+
+.footer-desc {
+  font-size: 11px;
+  color: rgba(245,237,214,0.35);
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.footer-col-title {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  color: rgba(245,237,214,0.45);
+  transition: color 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(245,237,214,0.2);
+  text-transform: uppercase;
+}
+
+/* ─── Toast global ─────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #0f0f0f;
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--cream);
+  padding: 12px 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  z-index: 2000;
+  opacity: 0;
+  transition: all 0.35s;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ─── Botón flotante admin (oculto) ────────────────── */
+#admin-secret-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 500;
+  width: 38px;
+  height: 38px;
+  background: rgba(8,8,8,0.85);
+  border: 1px solid rgba(201,168,76,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.2;
+  transition: all 0.3s;
+}
+
+#admin-secret-btn:hover { opacity: 0.85; }
+
+/* ─── Animaciones globales ─────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ringPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.03); }
+}
+
+@keyframes floatBottle {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%       { transform: translateY(-14px) rotate(1deg); }
+}
+
+@keyframes shadowPulse {
+  0%, 100% { transform: scaleX(1);   opacity: 0.5; }
+  50%       { transform: scaleX(0.8); opacity: 0.9; }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0); }
+  33%       { transform: translate(20px, -30px); }
+  66%       { transform: translate(-15px, 15px); }
+}
+
+@keyframes particleDrift {
+  0%   { opacity: 0; transform: translate(0,0) scale(0); }
+  20%  { opacity: 0.8; transform: translate(var(--tx, 10px), var(--ty, -20px)) scale(1); }
+  80%  { opacity: 0.4; transform: translate(var(--tx2, 20px), var(--ty2, -60px)) scale(0.5); }
+  100% { opacity: 0; transform: translate(var(--tx2, 20px), var(--ty2, -80px)) scale(0); }
+}
+
+/* ─── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .topbar { flex-wrap: wrap; padding: 12px 16px; }
+  .topbar-nav { display: none; }
+  .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ─── Product Card ─────────────────────────────── */
+.product-card {
+  background: linear-gradient(160deg,rgba(201,168,76,0.04),rgba(155,27,90,0.02));
+  border: 1px solid rgba(201,168,76,0.12);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.product-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.card-image-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(160deg,#0d0008,#1a0520);
+}
+
+.card-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,transparent 40%,rgba(201,168,76,0.05) 50%,transparent 60%);
+  animation: shimmer 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0%  { transform: translateX(-100%); }
+  100%{ transform: translateX(200%); }
+}
+
+.card-image-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.product-card:hover .card-image-inner { transform: rotateY(180deg); }
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg,#0d0008,#1a0520);
+  padding: 20px;
+  gap: 12px;
+}
+
+.bottle-display { font-size: 80px; filter: drop-shadow(0 10px 30px rgba(201,168,76,0.3)); }
+
+.card-product-img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-badge {
+  position: absolute;
+  top: 10px;
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.card-badge.oferta {
+  left: 10px;
+  background: linear-gradient(135deg,var(--magenta),var(--burgundy));
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold-light);
+}
+
+.card-badge.agotado {
+  right: 10px;
+  background: rgba(231,76,60,0.2);
+  border: 1px solid rgba(231,76,60,0.4);
+  color: rgba(231,76,60,0.9);
+}
+
+.back-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: var(--cream);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.back-desc {
+  font-size: 11px;
+  color: rgba(245,237,214,0.45);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.back-notes {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.note-chip {
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(201,168,76,0.8);
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.back-btn {
+  background: linear-gradient(135deg,rgba(201,168,76,0.2),rgba(155,27,90,0.2));
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold-light);
+  padding: 8px 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.back-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.card-info { padding: 14px 16px 8px; }
+
+.card-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(201,168,76,0.6);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--cream);
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.card-size {
+  font-size: 11px;
+  color: rgba(245,237,214,0.35);
+  letter-spacing: 0.5px;
+}
+
+/* ─── Card Footer — precio + WhatsApp ──────────── */
+.card-footer {
+  padding: 10px 16px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(201,168,76,0.08);
+}
+
+.card-price {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: var(--gold);
+}
+
+.card-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(37,211,102,0.08);
+  border: 1px solid rgba(37,211,102,0.3);
+  color: rgba(37,211,102,0.8);
+  transition: all 0.2s;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.card-wa:hover {
+  background: rgba(37,211,102,0.15);
+  border-color: rgba(37,211,102,0.6);
+  color: rgba(37,211,102,1);
+}
