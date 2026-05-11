@@ -244,8 +244,9 @@ Deberías ver el mensaje: `Ollama is running`
 ```cmd
 ollama list
 ```
-
 Deberías ver `llama3.2:3b` en la lista.
+
+### OPCIONAL
 En caso de querer cambiar o cargar otro,inicia ollama y escribe lo siguiente
 ```cmd
 ollama help
