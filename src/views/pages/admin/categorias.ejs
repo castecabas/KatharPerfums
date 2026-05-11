@@ -8,7 +8,7 @@
 .sidebar::-webkit-scrollbar{width:4px;}.sidebar::-webkit-scrollbar-thumb{background:rgba(201,168,76,0.3);border-radius:2px;}
 .nav-section-title{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.5);text-transform:uppercase;margin:24px 0 10px;padding-bottom:6px;border-bottom:1px solid rgba(201,168,76,0.1);}
 .nav-section-title:first-child{margin-top:0;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;cursor:pointer;border:1px solid transparent;transition:all 0.2s;margin-bottom:4px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1.5px;color:rgba(245,237,214,0.6);text-transform:uppercase;text-decoration:none;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid transparent;transition:all 0.2s;margin-bottom:4px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1.5px;color:rgba(245,237,214,0.6);text-transform:uppercase;text-decoration:none;}
 .nav-item:hover,.nav-item.active{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.2);color:var(--gold);}
 .nav-item.active{border-left:2px solid var(--gold);}
 .nav-icon{font-size:14px;width:18px;text-align:center;}
@@ -24,10 +24,10 @@
 .cat-card{background:linear-gradient(135deg,rgba(201,168,76,0.05),rgba(155,27,90,0.03));border:1px solid rgba(201,168,76,0.15);padding:24px;position:relative;overflow:hidden;transition:border-color 0.3s;}
 .cat-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
 .cat-card:hover{border-color:rgba(201,168,76,0.35);}
-.cat-name{font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:6px;}
+.cat-name{font-family:'Cinzel',serif;font-size:13px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
 .cat-slug{font-family:'Montserrat',sans-serif;font-size:10px;color:rgba(245,237,214,0.3);letter-spacing:1px;margin-bottom:8px;}
 .cat-desc{font-family:'Cormorant Garamond',serif;font-size:14px;color:rgba(245,237,214,0.5);font-style:italic;line-height:1.6;margin-bottom:16px;}
-.cat-actions{display:flex;gap:8px;}
+.card-actions{display:flex;gap:8px;}
 .tbl-btn{background:transparent;border:1px solid rgba(201,168,76,0.2);color:rgba(245,237,214,0.5);padding:5px 12px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
 .tbl-btn:hover{border-color:var(--gold);color:var(--gold);}
 .tbl-btn.del{border-color:rgba(231,76,60,0.2);color:rgba(231,76,60,0.5);}
@@ -60,6 +60,10 @@
 <div class="admin-layout">
   <%- include('../../components/admin-sidebar', {
     seccionAdmin,
+    totalProductos:  0,
+    totalCategorias: categorias.length,
+    totalMarcas:     0,
+    totalFamilias:   0,
     totalProductos: 0,
     totalCategorias: categorias.length
   }) %>
@@ -70,7 +74,7 @@
         <p class="eyebrow">✦ Administración</p>
         <h1>Gestión de <em>Categorías</em></h1>
       </div>
-      <button class="btn-add" onclick="abrirModal()">✦ Nueva Categoría</button>
+      <button class="btn-add" onclick="abrirModalCrear()">✦ Nueva Categoría</button>
     </div>
 
     <% if (categorias && categorias.length > 0) { %>
@@ -82,9 +86,16 @@
           <% if (cat.descripcion) { %>
             <div class="cat-desc"><%= cat.descripcion %></div>
           <% } %>
-          <div class="cat-actions">
+          <div class="card-actions">
+            <button class="tbl-btn"
+              onclick="abrirModalEditar(
+                '<%= cat.id %>',
+                '<%= cat.nombre.replace(/'/g, "\\'") %>',
+                `<%= cat.descripcion ? cat.descripcion.replace(/`/g, '\\`') : '' %>`
+              )">✎ Editar</button>
             <form method="POST" action="/admin/categorias/eliminar/<%= cat.id %>"
-                  onsubmit="return confirm('¿Eliminar categoría <%= cat.nombre %>?')">
+                  style="display:inline"
+                  onsubmit="return confirm('¿Eliminar la categoría <%= cat.nombre %>?')">
               <button type="submit" class="tbl-btn del">✕ Eliminar</button>
             </form>
           </div>
@@ -100,12 +111,12 @@
   </main>
 </div>
 
-<!-- Modal Nueva Categoría -->
-<div class="modal-overlay" id="modal-cat">
+<!-- ══════════ MODAL CREAR ══════════ -->
+<div class="modal-overlay" id="modal-crear">
   <div class="modal">
     <div class="modal-header">
       <span class="modal-title">✦ Nueva Categoría</span>
-      <button class="modal-close" onclick="cerrarModal()">✕</button>
+      <button class="modal-close" onclick="cerrarModal('modal-crear')">✕</button>
     </div>
     <form method="POST" action="/admin/categorias/crear">
       <div class="modal-body">
@@ -121,17 +132,56 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
+        <button type="button" class="btn-cancel" onclick="cerrarModal('modal-crear')">Cancelar</button>
         <button type="submit" class="btn-save">✦ Crear Categoría</button>
       </div>
     </form>
   </div>
 </div>
-
+<!-- ══════════ MODAL EDITAR ══════════ -->
+<div class="modal-overlay" id="modal-editar">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">✎ Editar Categoría</span>
+      <button class="modal-close" onclick="cerrarModal('modal-editar')">✕</button>
+    </div>
+    <form id="form-editar" method="POST" action="">
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Nombre *</label>
+          <input class="form-input" type="text" name="nombre"
+                 id="edit-nombre" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Descripción</label>
+          <textarea class="form-textarea" name="descripcion"
+                    id="edit-desc" placeholder="Descripción breve..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel" onclick="cerrarModal('modal-editar')">Cancelar</button>
+        <button type="submit" class="btn-save">✦ Actualizar</button>
+      </div>
+    </form>
+  </div>
+</div>
 <script>
-function abrirModal() { document.getElementById('modal-cat').classList.add('open'); }
-function cerrarModal() { document.getElementById('modal-cat').classList.remove('open'); }
-document.getElementById('modal-cat').addEventListener('click', e => {
-  if (e.target === document.getElementById('modal-cat')) cerrarModal();
+function abrirModalCrear() {
+  document.getElementById('modal-crear').classList.add('open');
+}
+
+function abrirModalEditar(id, nombre, desc) {
+  document.getElementById('edit-nombre').value = nombre;
+  document.getElementById('edit-desc').value   = desc;
+  document.getElementById('form-editar').action = '/admin/categorias/editar/' + id;
+  document.getElementById('modal-editar').classList.add('open');
+}
+
+function cerrarModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+document.querySelectorAll('.modal-overlay').forEach(o => {
+  o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
 });
 </script>

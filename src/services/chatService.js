@@ -3,7 +3,7 @@ const path    = require('path');
 const { Producto, Categoria } = require('../models/index');
 
 const OLLAMA_URL = 'http://localhost:11434/api/chat';
-const MODELO     = 'llama3.1:8b';
+const MODELO     = process.env.MODEL_CHAT || 'llama3.2:3b';
 
 // ─── Cargar contexto de la tienda ────────────────
 const cargarContextoTienda = () => {

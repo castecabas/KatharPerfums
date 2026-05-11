@@ -19,6 +19,7 @@ router.post('/productos/eliminar/:id', admin.eliminarProducto);
 // Categorías
 router.get('/categorias',             admin.listarCategorias);
 router.post('/categorias/crear',      admin.crearCategoria);
+router.post('/categorias/editar/:id', admin.editarCategoria);
 router.post('/categorias/eliminar/:id', admin.eliminarCategoria);
 
 // Marcas 

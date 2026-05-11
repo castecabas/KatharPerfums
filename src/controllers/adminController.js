@@ -119,6 +119,18 @@ const crearCategoria = async (req, res, next) => {
   } catch (error) { next(error); }
 };
 
+const editarCategoria = async (req, res, next) => {
+  try {
+    const { nombre, descripcion } = req.body;
+    await categoriaService.actualizarCategoria(req.params.id, {
+      nombre,
+      descripcion,
+      slug: slugify(nombre),
+    });
+    res.redirect('/admin/categorias');
+  } catch (error) { next(error); }
+};
+
 const eliminarCategoria = async (req, res, next) => {
   try {
     await categoriaService.eliminarCategoria(req.params.id);
@@ -196,7 +208,7 @@ module.exports = {
   loginPage,
   dashboard,
   listarProductos, crearProducto, editarProducto, eliminarProducto,
-  listarCategorias, crearCategoria, eliminarCategoria,
+  listarCategorias, crearCategoria, editarCategoria, eliminarCategoria,
   listarMarcas, crearMarca, editarMarca, eliminarMarca,
   listarFamilias, crearFamilia, editarFamilia, eliminarFamilia,
 };
