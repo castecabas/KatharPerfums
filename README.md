@@ -149,7 +149,7 @@ O simplemente descarga en .ZIP de la carpeta `katharperfums` en tu equipo en el 
 
 Abre una terminal dentro de la carpeta del proyecto y ejecuta:
 ```cmd
-npm install
+pnpm install
 ```
 
 ### 3. Configurar las variables de entorno
