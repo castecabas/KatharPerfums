@@ -20,25 +20,25 @@
 .orb2 { width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,0.1),transparent);bottom:-50px;right:-50px;animation-delay:-4s; }
 .orb3 { width:300px;height:300px;background:radial-gradient(circle,rgba(125,26,58,0.12),transparent);top:50%;right:20%;animation-delay:-2s; }
 .hero-content { position:relative;z-index:2;text-align:center;padding:40px 20px;animation:fadeInUp 0.8s ease forwards; }
-.hero-eyebrow { font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:20px; }
-.hero-title { font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,100px);font-weight:300;color:var(--cream);line-height:1;letter-spacing:4px;margin-bottom:8px; }
+.hero-eyebrow { font-family:var(--font-titulo);font-size:10px;letter-spacing:6px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:20px; }
+.hero-title { font-family:var(--font-elegante);font-size:clamp(52px,8vw,100px);font-weight:300;color:var(--cream);line-height:1;letter-spacing:4px;margin-bottom:8px; }
 .hero-title em { font-style:italic;color:var(--gold); }
-.hero-subtitle { font-family:'Cormorant Garamond',serif;font-size:clamp(16px,2.5vw,22px);font-style:italic;color:rgba(245,237,214,0.5);letter-spacing:3px;margin-bottom:40px; }
+.hero-subtitle { font-family:var(--font-elegante);font-size:clamp(16px,2.5vw,22px);font-style:italic;color:rgba(245,237,214,0.5);letter-spacing:3px;margin-bottom:40px; }
 .hero-divider { width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 40px; }
 .hero-cta { display:inline-flex;gap:16px;flex-wrap:wrap;justify-content:center; }
-.btn-primary { background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(155,27,90,0.2));border:1px solid rgba(201,168,76,0.5);color:var(--gold-light);padding:14px 36px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px; }
+.btn-primary { background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(155,27,90,0.2));border:1px solid rgba(201,168,76,0.5);color:var(--gold-light);padding:14px 36px;font-family:var(--font-titulo);font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:8px; }
 .btn-primary:hover { border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,0.15); }
-.btn-secondary { background:transparent;border:1px solid rgba(245,237,214,0.15);color:rgba(245,237,214,0.5);padding:14px 36px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none; }
+.btn-secondary { background:transparent;border:1px solid rgba(245,237,214,0.15);color:rgba(245,237,214,0.5);padding:14px 36px;font-family:var(--font-titulo);font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none; }
 .btn-secondary:hover { border-color:rgba(245,237,214,0.4);color:var(--cream); }
 .hero-scroll { position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.4; }
 .scroll-line { width:1px;height:40px;background:linear-gradient(180deg,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite; }
-.scroll-label { font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase; }
+.scroll-label { font-family:var(--font-titulo);font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase; }
 @keyframes scrollPulse { 0%,100%{opacity:0.3}50%{opacity:1} }
 
 /* ─── SECCIONES ─────────────────────────────────────── */
 .section { position:relative;z-index:1;padding:80px 24px; }
-.section-eyebrow { font-family:'Cinzel',serif;font-size:9px;letter-spacing:5px;color:rgba(201,168,76,0.6);text-transform:uppercase;text-align:center;margin-bottom:12px; }
-.section-title { font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:300;color:var(--cream);letter-spacing:3px;text-align:center; }
+.section-eyebrow { font-family:var(--font-titulo);font-size:9px;letter-spacing:5px;color:rgba(201,168,76,0.6);text-transform:uppercase;text-align:center;margin-bottom:12px; }
+.section-title { font-family:var(--font-elegante);font-size:clamp(32px,5vw,52px);font-weight:300;color:var(--cream);letter-spacing:3px;text-align:center; }
 .section-title em { font-style:italic;color:var(--gold); }
 .section-line { width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 52px; }
 
@@ -49,11 +49,11 @@
 .cat-card:hover { border-color:rgba(201,168,76,0.5);transform:translateY(-4px); }
 .cat-card:hover::before { opacity:1; }
 .cat-icon { font-size:36px;margin-bottom:16px;display:block; }
-.cat-name { font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px; }
-.cat-desc { font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(245,237,214,0.4);letter-spacing:1px; }
+.cat-name { font-family:var(--font-titulo);font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:8px; }
+.cat-desc { font-family:var(--font-elegante);font-size:14px;font-style:italic;color:rgba(245,237,214,0.4);letter-spacing:1px; }
 .empty-cats { text-align:center;padding:60px 20px;grid-column:1/-1; }
 .empty-cats-icon { font-size:48px;opacity:0.2;margin-bottom:16px; }
-.empty-cats-text { font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:rgba(245,237,214,0.3); }
+.empty-cats-text { font-family:var(--font-elegante);font-size:20px;font-style:italic;color:rgba(245,237,214,0.3); }
 
 /* ─── DESTACADOS ─────────────────────────────────────── */
 .destacados-section { background:linear-gradient(180deg,var(--black),#0d0008,var(--black));padding:80px 24px;position:relative;z-index:1; }
@@ -61,9 +61,9 @@
 
 /* ─── BANNER CTA ─────────────────────────────────────── */
 .banner-cta { position:relative;z-index:1;padding:80px 24px;text-align:center;background:linear-gradient(160deg,#0d0008,#1a0520);border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15); }
-.banner-cta-title { font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--cream);letter-spacing:3px;margin-bottom:12px; }
+.banner-cta-title { font-family:var(--font-elegante);font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--cream);letter-spacing:3px;margin-bottom:12px; }
 .banner-cta-title em { font-style:italic;color:var(--gold); }
-.banner-cta-sub { font-family:'Montserrat',sans-serif;font-size:12px;color:rgba(245,237,214,0.35);letter-spacing:2px;margin-bottom:36px; }
+.banner-cta-sub { font-family:var(--font-cuerpo);font-size:12px;color:rgba(245,237,214,0.35);letter-spacing:2px;margin-bottom:36px; }
 
 /* ─── PRODUCT CARD ─────────────────────────────────────── */
 .product-card { background:linear-gradient(160deg,rgba(201,168,76,0.05),rgba(0,0,0,0));border:1px solid rgba(201,168,76,0.15);cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden; }
@@ -76,13 +76,13 @@
 .card-product-img { width:100%;height:100%;object-fit:cover; }
 .bottle-display { font-size:80px;filter:drop-shadow(0 10px 30px rgba(201,168,76,0.3)); }
 .card-face.card-back { background:linear-gradient(160deg,#0d0008,#1a0520);transform:rotateY(180deg);padding:20px;gap:10px; }
-.back-title { font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--cream);text-align:center; }
+.back-title { font-family:var(--font-elegante);font-size:18px;font-style:italic;color:var(--cream);text-align:center; }
 .back-desc { font-size:11px;color:rgba(245,237,214,0.5);text-align:center;line-height:1.6; }
 .back-notes { display:flex;gap:6px;flex-wrap:wrap;justify-content:center; }
-.note-chip { background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;padding:3px 8px; }
-.back-btn { background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:8px 20px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;cursor:pointer;transition:all 0.2s; }
+.note-chip { background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:var(--gold);font-family:var(--font-titulo);font-size:8px;letter-spacing:1px;padding:3px 8px; }
+.back-btn { background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:8px 20px;font-family:var(--font-titulo);font-size:9px;letter-spacing:2px;cursor:pointer;transition:all 0.2s; }
 .back-btn:hover { background:rgba(201,168,76,0.1);border-color:var(--gold); }
-.card-badge { position:absolute;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;padding:3px 8px;text-transform:uppercase; }
+.card-badge { position:absolute;font-family:var(--font-titulo);font-size:8px;letter-spacing:2px;padding:3px 8px;text-transform:uppercase; }
 .card-badge.oferta { top:10px;left:10px;background:linear-gradient(135deg,var(--magenta),var(--burgundy));border:1px solid rgba(201,168,76,0.4);color:var(--gold-light); }
 .card-badge.agotado { top:10px;right:10px;background:rgba(231,76,60,0.2);border:1px solid rgba(231,76,60,0.4);color:rgba(231,76,60,0.9); }
 .card-particles { position:absolute;inset:0;pointer-events:none;overflow:hidden; }
@@ -91,11 +91,11 @@
 .particle:nth-child(1){top:20%;left:20%}.particle:nth-child(2){top:60%;left:80%;animation-delay:0.1s}.particle:nth-child(3){top:80%;left:30%;animation-delay:0.2s}.particle:nth-child(4){top:30%;left:70%;animation-delay:0.15s}
 @keyframes particlePop { 0%{opacity:0;transform:scale(0)}50%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(0) translate(20px,-20px)} }
 .card-info { padding:16px 16px 8px;border-top:1px solid rgba(201,168,76,0.1); }
-.card-brand { font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:4px; }
-.card-name { font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);letter-spacing:1px; }
+.card-brand { font-family:var(--font-titulo);font-size:9px;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:4px; }
+.card-name { font-family:var(--font-elegante);font-size:18px;color:var(--cream);letter-spacing:1px; }
 .card-size { font-size:10px;color:rgba(245,237,214,0.35);letter-spacing:1px;margin-top:4px; }
 .card-footer { padding:10px 16px 16px;display:flex;align-items:center;justify-content:space-between; }
-.card-price { font-family:'Cinzel',serif;font-size:13px;color:var(--gold);letter-spacing:1px; }
+.card-price { font-family:var(--font-titulo);font-size:13px;color:var(--gold);letter-spacing:1px; }
 .card-wish { background:none;border:1px solid rgba(201,168,76,0.2);color:rgba(201,168,76,0.5);width:30px;height:30px;font-size:14px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center; }
 .card-wish:hover,.card-wish.active { border-color:var(--rose);color:var(--rose); }
 </style>
@@ -132,7 +132,15 @@
     <% if (categorias && categorias.length > 0) { %>
       <% categorias.forEach(cat => { %>
         <a href="/catalogo?categoria=<%= cat.slug %>" class="cat-card">
-          <span class="cat-icon">🧴</span>
+          <span class="cat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category-2">
+            <path stroke="none" d="M0 0h24v24H0z" fill="#bc208a" />
+            <path d="M14 4h6v6h-6l0 -6" />
+            <path d="M4 14h6v6h-6l0 -6" />
+            <path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+          </svg>
+          </span>
           <div class="cat-name"><%= cat.nombre %></div>
           <% if (cat.descripcion) { %><div class="cat-desc"><%= cat.descripcion %></div><% } %>
         </a>

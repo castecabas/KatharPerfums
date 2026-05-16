@@ -149,7 +149,7 @@ O simplemente descarga en .ZIP de la carpeta `katharperfums` en tu equipo en el 
 
 Abre una terminal dentro de la carpeta del proyecto y ejecuta:
 ```cmd
-pnpm install
+npm install
 ```
 
 ### 3. Configurar las variables de entorno
@@ -244,9 +244,8 @@ Deberías ver el mensaje: `Ollama is running`
 ```cmd
 ollama list
 ```
-Deberías ver `llama3.2:3b` en la lista.
 
-### OPCIONAL
+Deberías ver `llama3.2:3b` en la lista.
 En caso de querer cambiar o cargar otro,inicia ollama y escribe lo siguiente
 ```cmd
 ollama help

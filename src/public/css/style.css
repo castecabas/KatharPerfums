@@ -2,10 +2,16 @@
    KATHARPERFUMS — Estilos Globales
    ===================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ─── Variables ────────────────────────────────────── */
 :root {
+  /* ─── Variables de fuentes ────────────────────── */
+  --font-titulo:   'Playfair Display', serif;
+  --font-elegante: 'Lora', serif;
+  --font-cuerpo:   'Lato', sans-serif;
+  --font-chat:     'Inter', sans-serif;
+
   --gold:       #C9A84C;
   --gold-light: #E8C96A;
   --gold-dark:  #8B6914;
@@ -31,7 +37,7 @@
 body {
   background: var(--black);
   color: var(--cream);
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-cuerpo);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -76,7 +82,7 @@ body::before {
 }
 
 .topbar-logo {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 18px;
   letter-spacing: 4px;
   color: var(--gold);
@@ -102,7 +108,7 @@ body::before {
   border: 1px solid rgba(201,168,76,0.2);
   color: rgba(245,237,214,0.6);
   padding: 6px 14px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 9px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -145,7 +151,7 @@ body::before {
 }
 
 .footer-brand-name {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 20px;
   letter-spacing: 6px;
   color: var(--gold);
@@ -153,7 +159,7 @@ body::before {
 }
 
 .footer-brand-sub {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-elegante);
   font-size: 13px;
   font-style: italic;
   color: rgba(245,237,214,0.35);
@@ -175,7 +181,7 @@ body::before {
 }
 
 .footer-col-title {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 10px;
   letter-spacing: 3px;
   color: var(--gold);
@@ -192,7 +198,7 @@ body::before {
 }
 
 .footer-links a {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-elegante);
   font-size: 14px;
   color: rgba(245,237,214,0.45);
   transition: color 0.2s;
@@ -212,7 +218,7 @@ body::before {
 }
 
 .footer-copy {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 9px;
   letter-spacing: 2px;
   color: rgba(245,237,214,0.2);
@@ -229,7 +235,7 @@ body::before {
   border: 1px solid rgba(201,168,76,0.4);
   color: var(--cream);
   padding: 12px 20px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 10px;
   letter-spacing: 2px;
   z-index: 2000;
@@ -375,7 +381,7 @@ body::before {
 .card-badge {
   position: absolute;
   top: 10px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 8px;
   letter-spacing: 2px;
   padding: 3px 8px;
@@ -397,7 +403,7 @@ body::before {
 }
 
 .back-title {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-elegante);
   font-size: 16px;
   color: var(--cream);
   text-align: center;
@@ -422,7 +428,7 @@ body::before {
   background: rgba(201,168,76,0.1);
   border: 1px solid rgba(201,168,76,0.2);
   color: rgba(201,168,76,0.8);
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 8px;
   letter-spacing: 1px;
   padding: 3px 8px;
@@ -434,7 +440,7 @@ body::before {
   border: 1px solid rgba(201,168,76,0.4);
   color: var(--gold-light);
   padding: 8px 20px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 9px;
   letter-spacing: 2px;
   cursor: pointer;
@@ -447,7 +453,7 @@ body::before {
 .card-info { padding: 14px 16px 8px; }
 
 .card-brand {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 9px;
   letter-spacing: 3px;
   color: rgba(201,168,76,0.6);
@@ -456,7 +462,7 @@ body::before {
 }
 
 .card-name {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-elegante);
   font-size: 17px;
   color: var(--cream);
   letter-spacing: 1px;
@@ -479,7 +485,7 @@ body::before {
 }
 
 .card-price {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 13px;
   color: var(--gold);
 }

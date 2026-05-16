@@ -15,7 +15,7 @@
   border: 1px solid rgba(201,168,76,0.5);
   color: var(--gold-light);
   padding: 12px 20px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -41,7 +41,7 @@
 }
 
 .kb-trigger-label {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 10px;
   letter-spacing: 3px;
 }
@@ -124,7 +124,7 @@
 }
 
 .kb-name {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 12px;
   letter-spacing: 3px;
   color: var(--gold);
@@ -222,7 +222,7 @@
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(201,168,76,0.1);
   padding: 10px 14px;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-elegante);
   font-size: 15px;
   color: rgba(245,237,214,0.85);
   line-height: 1.7;
@@ -249,7 +249,7 @@
   background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(155,27,90,0.08));
   border-color: rgba(201,168,76,0.2);
   color: var(--cream);
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-chat);
   font-size: 13px;
 }
 
@@ -266,7 +266,7 @@
   border: 1px solid rgba(201,168,76,0.25);
   color: rgba(201,168,76,0.7);
   padding: 5px 12px;
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 9px;
   letter-spacing: 1px;
   cursor: pointer;
@@ -336,7 +336,7 @@
   border: 1px solid rgba(201,168,76,0.2);
   color: var(--cream);
   padding: 9px 12px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-chat);
   font-size: 12px;
   outline: none;
   resize: none;
@@ -375,7 +375,7 @@
 }
 
 .kb-footer-note {
-  font-family: 'Cinzel', serif;
+  font-family: var(--font-titulo);
   font-size: 8px;
   letter-spacing: 1.5px;
   color: rgba(245,237,214,0.2);

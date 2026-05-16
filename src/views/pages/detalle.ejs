@@ -1,6 +1,6 @@
 <% layout = 'layouts/main' %>
 <% paginaActiva = 'catalogo' %>
-
+ 
 <style>
 /* ─── Layout ─── */
 .page{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 53px);}
@@ -12,58 +12,58 @@
 .ring2{width:450px;height:450px;animation-delay:0.8s;}
 .ring3{width:600px;height:600px;animation-delay:1.6s;border-color:rgba(155,27,90,0.07);}
 .bottle-wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
-.bottle-stage{width:500px;height:500px;display:flex;align-items:center;justify-content:center;animation:floatBottle 5s ease-in-out infinite;}
+.bottle-stage{width:600px;height:600px;display:flex;align-items:center;justify-content:center;animation:floatBottle 5s ease-in-out infinite;}
 .bottle-emoji{font-size:140px;filter:drop-shadow(0 20px 60px rgba(201,168,76,0.35)) drop-shadow(0 0 100px rgba(155,27,90,0.3));line-height:1;}
 .bottle-img{width:480px;height:480px;object-fit:contain;filter:drop-shadow(0 20px 60px rgba(201,168,76,0.35));animation:floatBottle 5s ease-in-out infinite;}
 .bottle-shadow{width:140px;height:20px;background:radial-gradient(ellipse,rgba(201,168,76,0.25) 0%,transparent 70%);border-radius:50%;margin-top:-10px;animation:shadowPulse 5s ease-in-out infinite;}
-.bottle-brand-tag{font-family:'Cinzel',serif;font-size:10px;letter-spacing:6px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-top:20px;}
-.bottle-name-tag{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;color:rgba(245,237,214,0.9);letter-spacing:2px;margin-top:4px;}
+.bottle-brand-tag{font-family:var(--font-titulo);font-size:10px;letter-spacing:6px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-top:20px;}
+.bottle-name-tag{font-family:var(--font-elegante);font-size:26px;font-style:italic;color:rgba(245,237,214,0.9);letter-spacing:2px;margin-top:4px;}
 
 /* ─── Panel derecho ─── */
 .right-panel{padding:48px 52px 60px 48px;overflow-y:auto;}
-.product-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:8px;}
-.product-brand{font-family:'Cinzel',serif;font-size:13px;letter-spacing:4px;color:var(--gold);margin-bottom:8px;}
-.product-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--cream);letter-spacing:2px;line-height:1.2;margin-bottom:4px;}
-.product-subtitle{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(245,237,214,0.35);letter-spacing:2px;margin-bottom:24px;}
+.product-eyebrow{font-family:var(--font-titulo);font-size:10px;letter-spacing:5px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:8px;}
+.product-brand{font-family:var(--font-titulo);font-size:13px;letter-spacing:4px;color:var(--gold);margin-bottom:8px;}
+.product-title{font-family:var(--font-elegante);font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--cream);letter-spacing:2px;line-height:1.2;margin-bottom:4px;}
+.product-subtitle{font-family:var(--font-elegante);font-size:16px;font-style:italic;color:rgba(245,237,214,0.35);letter-spacing:2px;margin-bottom:24px;}
 .gold-line{width:100%;height:1px;background:linear-gradient(90deg,var(--gold),rgba(155,27,90,0.5),transparent);margin:24px 0;}
 
 /* ─── Precio ─── */
 .price-section{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px;}
-.price-main{font-family:'Cinzel',serif;font-size:28px;color:var(--gold-light);letter-spacing:2px;}
-.price-currency{font-family:'Cinzel',serif;font-size:11px;color:rgba(201,168,76,0.5);letter-spacing:2px;}
-.price-badge{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;padding:4px 10px;text-transform:uppercase;border:1px solid;}
+.price-main{font-family:var(--font-titulo);font-size:28px;color:var(--gold-light);letter-spacing:2px;}
+.price-currency{font-family:var(--font-titulo);font-size:11px;color:rgba(201,168,76,0.5);letter-spacing:2px;}
+.price-badge{font-family:var(--font-titulo);font-size:9px;letter-spacing:2px;padding:4px 10px;text-transform:uppercase;border:1px solid;}
 .price-badge.disponible{background:rgba(46,204,113,0.1);border-color:rgba(46,204,113,0.3);color:rgba(46,204,113,0.8);}
 .price-badge.agotado{background:rgba(231,76,60,0.1);border-color:rgba(231,76,60,0.3);color:rgba(231,76,60,0.8);}
 
 /* ─── Section label ─── */
-.section-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:12px;}
+.section-label{font-family:var(--font-titulo);font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:12px;}
 
 /* ─── Descripción ─── */
 .desc-section{margin-bottom:24px;}
-.desc-text{font-family:'Cormorant Garamond',serif;font-size:16px;color:rgba(245,237,214,0.6);line-height:1.9;letter-spacing:0.3px;font-style:italic;}
+.desc-text{font-family:var(--font-elegante);font-size:16px;color:rgba(245,237,214,0.6);line-height:1.9;letter-spacing:0.3px;font-style:italic;}
 
 /* ─── Info grid ─── */
 .info-grid{background:rgba(201,168,76,0.03);border:1px solid rgba(201,168,76,0.1);padding:20px;margin-bottom:28px;}
-.info-grid-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.1);}
+.info-grid-title{font-family:var(--font-titulo);font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.1);}
 .info-grid-items{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .info-item{display:flex;flex-direction:column;gap:4px;}
-.info-key{font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;}
-.info-val{font-family:'Cormorant Garamond',serif;font-size:15px;color:rgba(245,237,214,0.8);}
+.info-key{font-family:var(--font-titulo);font-size:8px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;}
+.info-val{font-family:var(--font-elegante);font-size:15px;color:rgba(245,237,214,0.8);}
 
 /* ─── Familia olfativa badge ─── */
 .familia-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(155,27,90,0.12),rgba(201,168,76,0.08));border:1px solid rgba(201,168,76,0.2);padding:8px 16px;margin-bottom:24px;}
 .familia-icon{font-size:16px;}
-.familia-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;}
-.familia-nombre{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--cream);margin-left:4px;}
+.familia-label{font-family:var(--font-titulo);font-size:9px;letter-spacing:2px;color:rgba(201,168,76,0.5);text-transform:uppercase;}
+.familia-nombre{font-family:var(--font-elegante);font-size:15px;color:var(--cream);margin-left:4px;}
 
 /* ─── CTA — solo WhatsApp ─── */
 .cta-section{margin-top:32px;}
-.btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.35);color:rgba(37,211,102,0.9);padding:16px 24px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;cursor:pointer;transition:all 0.3s;text-decoration:none;text-transform:uppercase;}
+.btn-wa{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.35);color:rgba(37,211,102,0.9);padding:16px 24px;font-family:var(--font-titulo);font-size:11px;letter-spacing:3px;cursor:pointer;transition:all 0.3s;text-decoration:none;text-transform:uppercase;}
 .btn-wa:hover{background:rgba(37,211,102,0.14);border-color:rgba(37,211,102,0.6);box-shadow:0 0 24px rgba(37,211,102,0.1);}
 .btn-wa svg{flex-shrink:0;}
 
 /* ─── Back link ─── */
-.back-link{display:inline-flex;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;color:rgba(245,237,214,0.35);text-decoration:none;text-transform:uppercase;transition:color 0.2s;margin-bottom:24px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-titulo);font-size:9px;letter-spacing:2px;color:rgba(245,237,214,0.35);text-decoration:none;text-transform:uppercase;transition:color 0.2s;margin-bottom:24px;}
 .back-link:hover{color:var(--gold);}
 
 /* ─── Responsive ─── */

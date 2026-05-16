@@ -12,7 +12,14 @@
 
   <a href="/admin/productos"
      class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'productos' ? 'active' : '' %>">
-    <span class="nav-icon">🧴</span>
+    <span class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-border-all">
+	<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+	<path d="M4 6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12" />
+	<path d="M4 12l16 0" />
+	<path d="M12 4l0 16" />
+</svg>
+    </span>
     Productos
     <% if (typeof totalProductos !== 'undefined') { %>
       <span class="nav-count"><%= totalProductos %></span>
@@ -21,7 +28,15 @@
 
   <a href="/admin/categorias"
      class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'categorias' ? 'active' : '' %>">
-    <span class="nav-icon">🏷</span>
+    <span class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category-2">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M14 4h6v6h-6l0 -6" />
+        <path d="M4 14h6v6h-6l0 -6" />
+        <path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        <path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+      </svg>
+    </span>
     Categorías
     <% if (typeof totalCategorias !== 'undefined') { %>
       <span class="nav-count"><%= totalCategorias %></span>
@@ -40,7 +55,14 @@
 
   <a href="/admin/familias"
      class="nav-item <%= typeof seccionAdmin !== 'undefined' && seccionAdmin === 'familias' ? 'active' : '' %>">
-    <span class="nav-icon">🌸</span>
+    <span class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-cell">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M8 4l-4 2v5l4 2l4 -2v-5l-4 -2" />
+      <path d="M12 11l4 2l4 -2v-5l-4 -2l-4 2" />
+      <path d="M8 13v5l4 2l4 -2v-5" />
+    </svg>
+    </span>
     Familias Olfativas
     <% if (typeof totalFamilias !== 'undefined' && totalFamilias > 0) { %>
       <span class="nav-count"><%= totalFamilias %></span>
@@ -50,7 +72,16 @@
   <div class="nav-section-title">↗ Accesos</div>
 
   <a href="/" target="_blank" class="nav-item">
-    <span class="nav-icon">🌐</span>
+    <span class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-store">
+	        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 21l18 0" />
+          <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
+          <path d="M5 21l0 -10.15" />
+          <path d="M19 21l0 -10.15" />
+          <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+        </svg>
+    </span>
     Ver Tienda
   </a>
 

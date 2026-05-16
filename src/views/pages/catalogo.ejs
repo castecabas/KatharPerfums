@@ -32,24 +32,24 @@ function limpiarUrl() {
 .sidebar::-webkit-scrollbar { width:4px; }
 .sidebar::-webkit-scrollbar-thumb { background:rgba(201,168,76,0.3);border-radius:2px; }
 .sidebar-section { margin-bottom:32px; }
-.sidebar-title { font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;gap:8px; }
-.search-label { font-size:10px;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;display:block;margin-bottom:6px;font-family:'Cinzel',serif; }
-.search-input { width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);color:var(--cream);padding:9px 12px;font-family:'Montserrat',sans-serif;font-size:12px;outline:none;transition:border-color 0.3s; }
+.sidebar-title { font-family:var(--font-titulo);font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;gap:8px; }
+.search-label { font-size:10px;letter-spacing:2px;color:rgba(201,168,76,0.6);text-transform:uppercase;display:block;margin-bottom:6px;font-family:var(--font-titulo); }
+.search-input { width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);color:var(--cream);padding:9px 12px;font-family:var(--font-cuerpo);font-size:12px;outline:none;transition:border-color 0.3s; }
 .search-input::placeholder { color:rgba(245,237,214,0.3); }
 .search-input:focus { border-color:rgba(201,168,76,0.6); }
-.filter-item { display:flex;align-items:center;gap:10px;padding:8px 10px;cursor:pointer;border:1px solid transparent;transition:all 0.2s;margin-bottom:4px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;color:rgba(245,237,214,0.5);text-transform:uppercase;text-decoration:none; }
+.filter-item { display:flex;align-items:center;gap:10px;padding:8px 10px;cursor:pointer;border:1px solid transparent;transition:all 0.2s;margin-bottom:4px;font-family:var(--font-titulo);font-size:10px;letter-spacing:1px;color:rgba(245,237,214,0.5);text-transform:uppercase;text-decoration:none; }
 .filter-item:hover,.filter-item.active { background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.2);color:var(--gold); }
 .filter-item.active { border-left:2px solid var(--gold); }
 
 /* ─── Main ─── */
 .main { flex:1;padding:40px 36px;overflow:hidden; }
 .page-header { margin-bottom:36px; }
-.eyebrow { font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:var(--gold);opacity:0.7;margin-bottom:8px; }
-.page-header h1 { font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--cream);letter-spacing:2px; }
+.eyebrow { font-family:var(--font-titulo);font-size:10px;letter-spacing:5px;color:var(--gold);opacity:0.7;margin-bottom:8px; }
+.page-header h1 { font-family:var(--font-elegante);font-size:42px;font-weight:300;color:var(--cream);letter-spacing:2px; }
 .page-header h1 em { font-style:italic;color:var(--gold); }
 .page-header-line { width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin-top:16px; }
 .results-bar { display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid rgba(201,168,76,0.1); }
-.results-count { font-family:'Cormorant Garamond',serif;font-size:14px;color:rgba(245,237,214,0.45);font-style:italic; }
+.results-count { font-family:var(--font-elegante);font-size:14px;color:rgba(245,237,214,0.45);font-style:italic; }
 
 /* ─── Grid de productos ─── */
 .product-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px; }
@@ -66,43 +66,74 @@ function limpiarUrl() {
 .card-back { transform:rotateY(180deg);background:linear-gradient(160deg,#0d0008,#1a0520);padding:20px;gap:12px; }
 .bottle-display { font-size:80px;filter:drop-shadow(0 10px 30px rgba(201,168,76,0.3)); }
 .card-product-img { width:100%;height:100%;object-fit:cover; }
-.card-badge { position:absolute;top:10px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:2px;padding:3px 8px;text-transform:uppercase; }
+.card-badge { position:absolute;top:10px;font-family:var(--font-titulo);font-size:8px;letter-spacing:2px;padding:3px 8px;text-transform:uppercase; }
 .card-badge.oferta { left:10px;background:linear-gradient(135deg,var(--magenta),var(--burgundy));border:1px solid rgba(201,168,76,0.4);color:var(--gold-light); }
 .card-badge.agotado { right:10px;background:rgba(231,76,60,0.2);border:1px solid rgba(231,76,60,0.4);color:rgba(231,76,60,0.9); }
-.back-title { font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--cream);text-align:center;letter-spacing:1px; }
+.back-title { font-family:var(--font-elegante);font-size:16px;color:var(--cream);text-align:center;letter-spacing:1px; }
 .back-desc { font-size:11px;color:rgba(245,237,214,0.45);text-align:center;line-height:1.6; }
 .back-notes { display:flex;gap:6px;flex-wrap:wrap;justify-content:center; }
-.note-chip { background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:rgba(201,168,76,0.8);font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;padding:3px 8px;text-transform:uppercase; }
-.back-btn { background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(155,27,90,0.2));border:1px solid rgba(201,168,76,0.4);color:var(--gold-light);padding:8px 20px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;cursor:pointer;transition:all 0.2s;text-transform:uppercase; }
+.note-chip { background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:rgba(201,168,76,0.8);font-family:var(--font-titulo);font-size:8px;letter-spacing:1px;padding:3px 8px;text-transform:uppercase; }
+.back-btn { background:linear-gradient(135deg,rgba(201,168,76,0.2),rgba(155,27,90,0.2));border:1px solid rgba(201,168,76,0.4);color:var(--gold-light);padding:8px 20px;font-family:var(--font-titulo);font-size:9px;letter-spacing:2px;cursor:pointer;transition:all 0.2s;text-transform:uppercase; }
 .back-btn:hover { border-color:var(--gold);color:var(--gold); }
 .card-info { padding:14px 16px 8px; }
-.card-brand { font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:4px; }
-.card-name { font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--cream);letter-spacing:1px;margin-bottom:2px; }
+.card-brand { font-family:var(--font-titulo);font-size:9px;letter-spacing:3px;color:rgba(201,168,76,0.6);text-transform:uppercase;margin-bottom:4px; }
+.card-name { font-family:var(--font-elegante);font-size:17px;color:var(--cream);letter-spacing:1px;margin-bottom:2px; }
 .card-size { font-size:11px;color:rgba(245,237,214,0.35);letter-spacing:0.5px; }
 .card-footer { padding:10px 16px 14px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(201,168,76,0.08); }
-.card-price { font-family:'Cinzel',serif;font-size:13px;color:var(--gold); }
+.card-price { font-family:var(--font-titulo);font-size:13px;color:var(--gold); }
 .card-price span { font-size:9px;color:rgba(201,168,76,0.5); }
 .card-wish { background:none;border:1px solid rgba(201,168,76,0.2);color:rgba(201,168,76,0.5);width:30px;height:30px;font-size:14px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center; }
 .card-wish:hover,.card-wish.active { border-color:var(--rose);color:var(--rose); }
 
+/* ─── Filtro de precio ─── */
+.price-inputs { display:flex;gap:8px;margin-bottom:10px; }
+.price-input { width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);color:var(--cream);padding:8px 10px;font-family:var(--font-cuerpo);font-size:12px;outline:none;transition:border-color 0.3s; }
+.price-input::placeholder { color:rgba(245,237,214,0.25); }
+.price-input:focus { border-color:rgba(201,168,76,0.5); }
+.price-actions { display:flex;align-items:center;gap:8px; }
+.price-apply {
+  flex:1;
+  background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(155,27,90,0.15));
+  border:1px solid rgba(201,168,76,0.35);
+  color:var(--gold-light);
+  padding:7px 12px;
+  font-family:var(--font-titulo);
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all 0.25s;
+}
+.price-apply:hover {
+  border-color:var(--gold);
+  background:linear-gradient(135deg,rgba(201,168,76,0.25),rgba(155,27,90,0.2));
+  color:var(--gold);
+}
+.price-clear {
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-family:var(--font-titulo);
+  font-size:9px;
+  letter-spacing:1px;
+  color:rgba(231,76,60,0.6);
+  text-decoration:none;
+  text-transform:uppercase;
+  border:1px solid rgba(231,76,60,0.2);
+  padding:7px 10px;
+  transition:all 0.2s;
+  white-space:nowrap;
+}
+.price-clear:hover {
+  color:rgba(231,76,60,0.9);
+  border-color:rgba(231,76,60,0.5);
+  background:rgba(231,76,60,0.06);
+}
+
 /* ─── Empty state ─── */
 .empty-state { grid-column:1/-1;text-align:center;padding:80px 20px; }
 .empty-state-icon { font-size:48px;opacity:0.2;margin-bottom:16px; }
-.empty-state-text { font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(245,237,214,0.35);font-style:italic; }
-
-/* ─── Price range ─── */
-.price-range-form { }
-.price-inputs { display:flex;align-items:flex-end;gap:6px; }
-.price-field { flex:1; }
-.price-field .search-label { margin-bottom:4px; }
-.price-sep { padding-bottom:9px;color:rgba(201,168,76,0.3);font-size:13px; }
-.price-input { -moz-appearance:textfield; }
-.price-input::-webkit-outer-spin-button,
-.price-input::-webkit-inner-spin-button { -webkit-appearance:none;margin:0; }
-.price-apply { width:100%;margin-top:8px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold-light);padding:7px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;cursor:pointer;transition:all 0.2s;text-transform:uppercase; }
-.price-apply:hover { background:rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.5); }
-.price-clear { display:block;margin-top:6px;font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;color:rgba(231,76,60,0.6);text-align:center;text-decoration:none;text-transform:uppercase;transition:color 0.2s; }
-.price-clear:hover { color:rgba(231,76,60,0.9); }
+.empty-state-text { font-family:var(--font-elegante);font-size:20px;color:rgba(245,237,214,0.35);font-style:italic; }
 
 /* ─── Responsive ─── */
 @media (max-width:768px) {
@@ -119,7 +150,12 @@ function limpiarUrl() {
   <aside class="sidebar" id="sidebar">
 
     <div class="sidebar-section">
-      <div class="sidebar-title">🔍 Buscar</div>
+      <div class="sidebar-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+        <path d="M21 21l-6 -6" />
+      </svg> Buscar</div>
       <label class="search-label">Perfume o marca</label>
       <input class="search-input" id="search-input" type="text"
              placeholder="Ej: Dior, Chanel..."
@@ -129,7 +165,14 @@ function limpiarUrl() {
 
     <% if (rangoPrecios) { %>
     <div class="sidebar-section">
-      <div class="sidebar-title">💰 Precio</div>
+      <div class="sidebar-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-premium-rights">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+        <path d="M13.867 9.75c-.246 -.48 -.708 -.769 -1.2 -.75h-1.334c-.736 0 -1.333 .67 -1.333 1.5c0 .827 .597 1.499 1.333 1.499h1.334c.736 0 1.333 .671 1.333 1.5c0 .828 -.597 1.499 -1.333 1.499h-1.334c-.492 .019 -.954 -.27 -1.2 -.75" />
+        <path d="M12 7v2" />
+        <path d="M12 15v2" />
+      </svg> Precio</div>
       <form class="price-range-form" onsubmit="return applyPriceFilter()">
         <div class="price-inputs">
           <div class="price-field">
@@ -158,7 +201,11 @@ function limpiarUrl() {
 
     <% if (marcas && marcas.length > 0) { %>
     <div class="sidebar-section">
-      <div class="sidebar-title">🏷 Marcas</div>
+      <div class="sidebar-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-sparkle-2">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 3c.375 0 .711 .231 .846 .581l1.65 4.29a2.85 2.85 0 0 0 1.632 1.633l4.291 1.65a.906 .906 0 0 1 0 1.692l-4.29 1.65a2.84 2.84 0 0 0 -1.633 1.632l-1.65 4.291a.906 .906 0 0 1 -1.692 0l-1.65 -4.29a2.84 2.84 0 0 0 -1.632 -1.633l-4.291 -1.65a.906 .906 0 0 1 0 -1.692l4.29 -1.65a2.84 2.84 0 0 0 1.633 -1.632l1.65 -4.291a.91 .91 0 0 1 .846 -.581" />
+      </svg> Marcas</div>
       <a href="<%= limpiarUrl('marca') %>" class="filter-item <%= !filtros.marca ? 'active' : '' %>">
         ◈ Todas
       </a>
@@ -173,7 +220,14 @@ function limpiarUrl() {
 
     <% if (categorias && categorias.length > 0) { %>
     <div class="sidebar-section">
-      <div class="sidebar-title">🏷 Categorías</div>
+      <div class="sidebar-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category-2">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M14 4h6v6h-6l0 -6" />
+            <path d="M4 14h6v6h-6l0 -6" />
+            <path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+          </svg> Categorías</div>
       <a href="<%= limpiarUrl('categoria') %>" class="filter-item <%= !categoriaActiva ? 'active' : '' %>">
         ◈ Todas
       </a>
