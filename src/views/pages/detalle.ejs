@@ -86,7 +86,9 @@
       <div class="bottle-stage">
         <% if (producto.imagen && producto.imagen !== 'default.jpg') { %>
           <img src="/uploads/<%= producto.imagen %>"
-               class="bottle-img" alt="<%= producto.nombre %>">
+               class="bottle-img" alt="<%= producto.nombre %>"
+               onerror="this.onerror=null;this.src='/uploads/default.jpg';">
+               
         <% } else { %>
           <div class="bottle-emoji"><img src="/uploads/default.jpg" alt="no encontrado"></div>
         <% } %>

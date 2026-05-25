@@ -22,7 +22,8 @@
         <% if (producto.imagen && producto.imagen !== 'default.jpg') { %>
           <img src="/uploads/<%= producto.imagen %>"
                class="card-product-img"
-               alt="<%= producto.nombre %>">
+               alt="<%= producto.nombre %>"
+               onerror="this.onerror=null;this.src='/images/default.jpg';">
         <% } else { %>
           <div class="bottle-display">🧴</div>
         <% } %>

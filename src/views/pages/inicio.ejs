@@ -133,13 +133,7 @@
       <% categorias.forEach(cat => { %>
         <a href="/catalogo?categoria=<%= cat.slug %>" class="cat-card">
           <span class="cat-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-category-2">
-            <path stroke="none" d="M0 0h24v24H0z" fill="#bc208a" />
-            <path d="M14 4h6v6h-6l0 -6" />
-            <path d="M4 14h6v6h-6l0 -6" />
-            <path d="M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-            <path d="M4 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-          </svg>
+            <svg width="64px" height="64px" viewBox="0 0 32 32" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" fill="#000000" transform="matrix(-1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1,.cls-2,.cls-3{fill:none;stroke:#f6d5f1;}.cls-1{stroke-miterlimit:10;}.cls-2{stroke-linecap:round;}.cls-2,.cls-3{stroke-linejoin:round;}.cls-3{stroke-width:2px;}</style></defs><title></title><path class="cls-1" d="M15.49,13.5h1a5,5,0,0,1,5,5v7a3,3,0,0,1-3,3h-5a3,3,0,0,1-3-3v-7A5,5,0,0,1,15.49,13.5Z"></path><rect class="cls-2" height="3" width="5" x="13.5" y="10.5"></rect><rect class="cls-2" height="3" width="3" x="14.5" y="7.5"></rect><path class="cls-2" d="M14.5,3.5h5a0,0,0,0,1,0,0v1a1,1,0,0,1-1,1h-4a0,0,0,0,1,0,0v-2A0,0,0,0,1,14.5,3.5Z"></path><line class="cls-3" x1="16" x2="16" y1="6" y2="7"></line></g></svg>
           </span>
           <div class="cat-name"><%= cat.nombre %></div>
           <% if (cat.descripcion) { %><div class="cat-desc"><%= cat.descripcion %></div><% } %>

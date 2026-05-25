@@ -147,11 +147,16 @@ O simplemente descarga en .ZIP de la carpeta `katharperfums` en tu equipo en el 
 
 ### 2. Instalar dependencias
 
+Recomendado por seguridad: Instalar bun o pnpm para mayor rapidez y seguridad: https://bun.com/
 Abre una terminal dentro de la carpeta del proyecto y ejecuta:
+```cmd
+bun install
+```
+Si utilizas pnpm, solo reemplaza bun por pnpm en el comando para ejecutar, y viceversssa:
 ```cmd
 pnpm install
 ```
-
+> Si no lo tienes ,instalalo en la pagina oficial, NO utilizar npm, no posee barreras de seguridad.
 ### 3. Configurar las variables de entorno
 
 Crea el archivo `.env` (con las variables de entorno mencionadas) en la raíz del proyecto 
@@ -276,7 +281,7 @@ ollama serve
 ### Modo desarrollo (recomendado)
 
 ```cmd
-npm run dev
+pnpm run dev
 ```
 
 Nodemon reiniciará el servidor automáticamente cada vez que modifiques un archivo.
@@ -284,7 +289,7 @@ Nodemon reiniciará el servidor automáticamente cada vez que modifiques un arch
 ### Modo producción
 
 ```cmd
-npm start
+pnpm start
 ```
 
 ### Verificar que todo funciona
